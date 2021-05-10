@@ -1,0 +1,127 @@
+<nav class="navbar navbar-expand-lg" id="navbar-search-products">
+  <a class="navbar-brand" style="font-size:20px;margin-left:5px;" routerLink="/home">KEKE</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="/search-component">Search-Products</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/count-calories" >Count-Calories</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/about-us" >About Us</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+
+<!-- <div class= "container-fluid">
+  <div class="row">
+    <div class="col-md-6"></div>
+  <div class="col-md-6">
+    <form class="d-flex">
+      <input [(ngModel)]="productName" #nameVal [ngModelOptions]="{standalone: true}" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-primary" id="search-btn" (click)="searchProducts(nameVal.value)" type="submit">Search</button>
+    </form>
+  </div>
+</div>
+</div> -->
+<div class="container-fluid header-div-sp">
+  <div class = "row" >
+    <div class="col-md-2" id="controls-row">
+    <div id="radio-btn-countrys">
+      <div class="form-check">
+        <label class="form-check-label" style="margin-left:-20px">Country</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="country" id="inlineRadio1" value="us" (change)="selectCountry($event)" checked >
+        <label class="form-check-label" for="inlineRadio1">US</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="country" id="inlineRadio2" value="uk" (change)="selectCountry($event)">
+        <label class="form-check-label" for="inlineRadio2">UK</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="country" id="inlineRadio3" value="aus" (change)="selectCountry($event)">
+        <label class="form-check-label" for="inlineRadio3">AUS</label>
+      </div>
+    </div>
+    <div id= "checkboxes_diet-pref">
+        <div class="form-check">
+          <label class="form-check-label" style="margin-left:-20px">Allergic to</label>
+        </div>
+        <div *ngFor="let allergies of allergies_list; let i = index" class="form-check">
+          <input class="form-check-input" type="checkbox" value="{{allergies}}" (change)="selectAllergies($event)" >
+          <label class="form-check-label" for="inlineRadio1">{{allergies| titlecase}}</label>
+        </div>
+        
+         <!--  <div *ngFor="let allergies of allergies_list; let i = index" class="form-check">
+            <input class="form-check-input" type="checkbox" value="{{allergies}}" (change)="selectAllergies($event)" >
+            <ng-container *ngIf="allergies == 'dairy' || allergies == 'gluten' ; then caseC; else caseD">
+            </ng-container>
+            <ng-template #caseC> <label class="form-check-label" for="inlineRadio1">{{allergies| titlecase}}-Free</label></ng-template>
+            <ng-template #caseD> <label class="form-check-label" for="inlineRadio1">{{allergies| titlecase}}</label></ng-template>
+           
+          </div> -->
+      
+    </div>
+  </div>
+ 
+<!--   <div class="row">
+    <div class="col-md-10">
+    </div>
+    <div class="col-md-2 ">
+         <p class="text-end"><a class="nav-link col-md-2 " routerLink="/home" routerLinkActive="active"><i class="bi bi-house-fill fa-lg"></i></a></p> --> 
+
+
+<div class="col-md-10" id="search-products-container">
+      <div class="row">
+        <div class="col-md-2"></div>
+      <div class="col-md-6">
+        <form class="d-flex">
+          <input [(ngModel)]="productName" #nameVal [ngModelOptions]="{standalone: true}" class="form-control me-2" type="search" placeholder="Search for any food, like banana" aria-label="Search">
+          <button class="btn btn-outline-primary" id="search-btn"  (click)="searchProducts(nameVal.value)" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+
+    <div *ngIf= "isLoading == true" class="progress-bar row mt-3">
+      <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+    </div>
+
+    <div *ngIf="statusCheck == false" class="row" style="height:450px;">
+      <div class="offset-md-3 col-md-3" style="margin:auto;font-size:25px;color:#dee2e6">Search Products</div>
+    </div>
+    
+      <ng-container *ngIf="statusCheck == true && itemAvailable == true; then caseA; else caseB">
+      </ng-container>
+      <ng-template #caseA>
+        <div class="row" id="data-row">
+          <div class="col-md-2" *ngFor="let item of productdata">
+           <div class="card" id="product-card"style="height: 100%;">
+               <div class="card-body">
+                 <p class="card-title" style="height: 80px;">{{item.name | titlecase}}</p>
+                 <p class="card-text" style="height: 30px;">{{item.calories}} KCal.</p>
+                 <p ><button type="button" class="btn btn-sm" id="details-btn" (click)="onSelectDetails(item)">View</button></p>
+               
+               </div>
+             </div>
+          </div>
+      </div>
+      </ng-template>
+      <ng-template #caseB>
+        <div *ngIf="statusCheck == true && itemAvailable == false">
+          <div class="row" style="height:450px;">
+            <div class="offset-md-4 col-md-8" style="margin:auto;font-size:25px;color:#dee2e6">Sorry! Product not listed.</div>
+          </div>
+        </div>
+      </ng-template>
+</div>
+</div>
+</div>
+
+ 

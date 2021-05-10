@@ -1,0 +1,28 @@
+
+#navbar-about-us{
+    background-color:#48494b; 
+  }
+#navbar-about-us a{
+    color:#ffffff;
+    font-weight:500;
+    font-size:16px;
+}
+#about-us-container li{
+    text-align:center;
+    font-weight:500;
+    font-size:18px;
+}
+#about-us-container h2{
+    text-align:center;
+    padding-bottom: 15px;
+    padding-top: 15px;
+    }
+#team-div{
+    border:1px solid #48494b;
+}
+#about-us-container .row{
+    padding-top:20px;
+}
+#navbar-about-us li.active{
+    border:1px solid #a49d9d;
+}

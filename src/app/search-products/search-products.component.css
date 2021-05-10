@@ -1,0 +1,121 @@
+#product-card{
+    background-color:#f5fdf8;
+}
+
+.btn-check{
+    position: absolute;
+    clip: rect(0,0,0,0);
+  
+}
+.btn-outline-primary{
+    margin-bottom:0px;
+}
+#search-products-container{
+    padding-bottom:15px;
+    padding-top:15px;
+    min-width: 0;
+    width: 100%;
+}
+#controls-row{
+    background-color:#C23641;
+    padding-top:20px;
+    
+}
+#controls-row .form-check{
+    padding-bottom:1.05rem;
+}
+#data-row{
+    padding-top: 15px;
+}
+#details-btn{
+    float:right;
+    border-color: #C23641;
+    background-color:#C23641;
+    color: #fff;
+}
+#radio-btn-country .btn-outline-primary{
+    color:#C23641;
+    border-color: #C23641;
+
+}
+#radio-btn-diet .btn-outline-primary{
+    color:#C23641;
+    border-color: #C23641;
+}
+
+#radio-btn-country label:hover {
+    background-color: #C23641;
+    color:#fff;
+  }
+  #radio-btn-diet label:hover {
+    background-color: #C23641;
+    color:#fff;
+  }
+  #search-btn{
+    color:#C23641;
+    border-color: #C23641;
+  }
+  #search-btn:hover{
+    background-color: #C23641;
+    color:#fff;
+  }
+
+#search-sp{
+    color: #C23641;
+    background-color: #fff;
+    border-color:#fff #fff #C23641;
+}
+#search-sp a{
+    border-color: #fff #fff #fff;
+    color:#C23641;
+    font-weight:500;
+    font-size:17px;
+}
+
+#count-caloroes-sp{
+    color: #C23641;
+    background-color: #fff;
+    border-color: #dee2e6 #dee2e6 #dee2e6;
+}
+
+#count-caloroes-sp a{
+    color:#C23641;
+    font-weight:500;
+    font-size:17px;
+}
+.progress-bar{
+    z-index: 99;
+}
+#radio-btn-countrys .form-check-label, #checkboxes_diet-pref .form-check-label{
+    font-weight:400;
+    font-size:16px;
+    color:#ffffff;
+}
+#radio-btn-countrys{
+    padding-top:10px;
+}
+#myTab-sp{
+    background-color:#383838;
+}
+#myTab-sp li{
+    padding:0.5rem;
+
+}
+#myTab-sp li a{
+    
+    color:#ffffff;
+    font-weight: 500;
+    font-size:16px;
+    background-color:none;
+}
+#navbar-search-products{
+    background-color:#48494b;
+}
+#navbar-search-products a{
+    color:#ffffff;
+    font-weight:500;
+    font-size:16px;
+}
+#navbar-search-products li.active{
+    border:1px solid #a49d9d;
+}

@@ -1,0 +1,21 @@
+#dialog-ok-btn{
+    float:right;
+    color:#fff;
+    background-color: #C23641;
+    border-color:#C23641;
+}
+.header-class{
+    font-weight:500;
+    margin-bottom:5px;
+}
+
+i.safe{
+    font-size:23px;
+    color:green;
+
+}
+
+i.warning{
+    font-size:23px;
+    color: orange;
+}

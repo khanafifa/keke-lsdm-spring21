@@ -1,0 +1,9 @@
+<h1 mat-dialog-title>Total Calorie Intake - {{data.meal}}</h1>
+<div class="col-md-2" *ngFor="let item of data.products">
+    <p>{{item.productname}}</p>
+</div>
+<h3>{{data.calories}} KCal</h3>
+<div mat-dialog-actions>
+    <button id="dialog-ok-btn-cc"  mat-button (click)="onOkClick()">Ok</button>
+   <!--  <button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>Ok</button> -->
+  </div>

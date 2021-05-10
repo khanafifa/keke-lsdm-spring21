@@ -1,0 +1,212 @@
+<!-- <ul class="nav nav-tabs" id="myTab-cc" role="tablist">
+  <li class="nav-item" role="presentation">
+    <a class="nav-link" routerLink="/search-component" routerLinkActive="active">Search Products</a>
+     <button class="nav-link active" id="search-cc" data-bs-toggle="tab"  type="button" role="tab"  aria-selected="true">
+      <a class="nav-link" routerLink="/search-component" routerLinkActive="active">Search Products</a>
+    </button> 
+  </li>
+  <li class="nav-item" role="presentation">
+    <a class="nav-link" routerLink="/count-calories" routerLinkActive="active">Count Calories</a>
+   <button class="nav-link" data-bs-toggle="tab"  id="count-calories-cc" type="button" role="tab"  aria-selected="false">
+      <a class="nav-link" routerLink="/count-calories" routerLinkActive="active">Count Calories</a>
+    </button> 
+  </li>
+</ul> -->
+<nav class="navbar navbar-expand-lg" id="navbar-count-calories"> 
+  <a class="navbar-brand" style="font-size:20px;margin-left:5px;" routerLink="/home">KEKE</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/search-component">Search Products</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="/count-calories" >Count Calories</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/about-us" >About us</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-2" id="controls-row-count-calories">
+      <div  id="radio-btn-countrys-cc">
+        <div class="form-check">
+          <label class="form-check-label">Choose Country:</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="country" id="inlineRadio1" value="us" (change)="selectCountryCC($event)" checked >
+          <label class="form-check-label" for="inlineRadio1">US</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="country" id="inlineRadio2" value="uk" (change)="selectCountryCC($event)">
+          <label class="form-check-label" for="inlineRadio2">UK</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="country" id="inlineRadio3" value="aus" (change)="selectCountryCC($event)">
+          <label class="form-check-label" for="inlineRadio3">AUS</label>
+        </div>
+      </div>
+      <div>
+        <select class="form-select-custom" (change)="selectMeal($event)" style="margin-bottom:20px;">
+          <option selected>Select Meal</option>
+          <option value="Breakfast">Breakfast</option>
+          <option value="Brunch">Brunch</option>
+          <option value="Lunch">Lunch</option>
+          <option value="Dinner">Dinner</option>
+        </select>
+      </div>
+
+    </div>
+    <div class="col-md-10" id="count-calories-container">
+      <div class= "row">
+        <div class="col-md-2"></div>
+        <div class="col-md-6">
+          <form class="d-flex">
+            <input [(ngModel)]="productName" #nameVal [ngModelOptions]="{standalone: true}" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" id="search-btn-cc" (click)="searchProductstoCountCalories(nameVal.value)" type="submit">Search</button>
+          </form>
+        </div>
+        <div class="col-md-2">
+          <button type="button" class="btn btn-primary btn-sm" id="calculate-btn" (click)="calculateTotalCalories()">
+            <i class="bi bi-calculator"></i>Calculate
+            <span id="no_items_added">{{numItemsAdded}}</span>
+          </button>
+          </div>
+      </div>
+
+      <div *ngIf= "isLoading == true" class="progress-bar row mt-3">
+        <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+      </div>
+  
+      <div *ngIf="statusCheck == false" class="row" style="height:450px;">
+        <div class="offset-md-3 col-md-3" style="margin:auto;font-size:25px;color:#dee2e6">Search Products</div>
+      </div>
+
+      <ng-container *ngIf="statusCheck == true && itemAvailable == true; then caseA; else caseB">
+      </ng-container>
+  
+      <ng-template #caseA>
+        <div class = "row" id="cc-data-row">
+          <div class="col-md-2" *ngFor="let item of productdata">
+           <div class="card" style="height: 100%;">
+               <div class="card-body">
+                 <p class="card-title" style="height: 50px;">{{item.name | titlecase}}</p>
+                <button type="button" class="btn btn-primary btn-sm" id="select-btn" 
+                (click)="onSelectItemClick(item)"><i class="bi bi-plus"></i></button>
+               </div>
+             </div>
+          </div>
+       </div>
+      </ng-template>
+  
+      <ng-template #caseB>
+        <div *ngIf="statusCheck == true && itemAvailable == false">
+          <div class="row" style="height:450px;">
+            <div class="offset-md-4 col-md-8" style="margin:auto;font-size:25px;color:#dee2e6">Sorry! Product not listed.</div>
+          </div>
+        </div>
+      </ng-template>  
+
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+<!-- 
+<div class="container-fluid" id="count-calories-container">
+  <div class="row">
+    <div class = "col-md-3" id="radio-btn-countrys-cc">
+      <div class="form-check form-check-inline">
+        <label class="form-check-label">Choose Country:</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="country" id="inlineRadio1" value="us" (change)="selectCountryCC($event)" checked >
+        <label class="form-check-label" for="inlineRadio1">US</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="country" id="inlineRadio2" value="uk" (change)="selectCountryCC($event)">
+        <label class="form-check-label" for="inlineRadio2">UK</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="country" id="inlineRadio3" value="aus" (change)="selectCountryCC($event)">
+        <label class="form-check-label" for="inlineRadio3">AUS</label>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <select class="form-select-custom" (change)="selectMeal($event)">
+        <option selected>Select Meal</option>
+        <option value="Breakfast">Breakfast</option>
+        <option value="Brunch">Brunch</option>
+        <option value="Lunch">Lunch</option>
+        <option value="Dinner">Dinner</option>
+      </select>
+    </div>
+    <div class= "col-md-3">
+      <form class="d-flex">
+        <input [(ngModel)]="productName" #nameVal [ngModelOptions]="{standalone: true}" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" id="search-btn-cc" (click)="searchProductstoCountCalories(nameVal.value)" type="submit">Search</button>
+      </form>
+    </div>
+    <div class="col-md-2">
+      <button type="button" class="btn btn-primary btn-sm" id="calculate-btn" (click)="calculateTotalCalories()">
+        <i class="bi bi-calculator"></i>Calculate
+        <span id="no_items_added">{{numItemsAdded}}</span>
+      </button>
+    </div> 
+  </div>
+</div>
+
+<div class="container">
+
+    <div *ngIf= "isLoading == true" class="progress-bar row">
+      <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+    </div>
+
+    <div *ngIf="statusCheck == false" class="row" style="height:450px;">
+      <div class="offset-md-3 col-md-3" style="margin:auto;font-size:25px;color:#dee2e6">Search Products</div>
+    </div>
+
+    <ng-container *ngIf="statusCheck == true && itemAvailable == true; then caseA; else caseB">
+    </ng-container>
+
+    <ng-template #caseA>
+      <div class = "row" id="cc-data-row">
+        <div class="col-md-2" *ngFor="let item of productdata">
+         <div class="card" style="height: 100%;">
+             <div class="card-body">
+               <p class="card-title" style="height: 50px;">{{item.name | titlecase}}</p>
+              <button type="button" class="btn btn-primary btn-sm" id="select-btn" 
+              (click)="onSelectItemClick(item)"><i class="bi bi-plus"></i></button>
+             </div>
+           </div>
+        </div>
+     </div>
+    </ng-template>
+
+    <ng-template #caseB>
+      <div *ngIf="statusCheck == true && itemAvailable == false">
+        <div class="row" style="height:450px;">
+          <div class="offset-md-4 col-md-8" style="margin:auto;font-size:25px;color:#dee2e6">Sorry! Product not listed.</div>
+        </div>
+      </div>
+    </ng-template>  
+</div>
+
+ -->
+
+ 

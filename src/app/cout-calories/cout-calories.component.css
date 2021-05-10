@@ -1,0 +1,141 @@
+#dialog-ok-btn{
+    float: right;
+   }
+   .btn-check{
+       position: absolute;
+       clip: rect(0,0,0,0);
+       pointer-events: none;
+   }
+   .btn-outline-primary{
+       margin-bottom:0px;
+   }
+   #select-btn{
+       color: #fff;
+       background-color: #C23641;
+       border-color: #C23641;
+       padding: .18rem .18rem;
+        line-height: 0.5;
+        float:right;   
+   }
+   #select-btn i{
+       font-size: 20px;
+   }
+   #count-calories-container{
+       padding-bottom:15px;
+       padding-top:15px;
+   }
+   #cc-controls-row{
+       padding-bottom: 15px;
+   }
+   #cc-data-row{
+       padding-top:15px;
+   }
+   #calculate-btn{
+       float:right;
+       color:#ffffff;
+       border-color: #C23641;
+       background-color: #C23641;
+   }
+   .form-select-custom{
+    display: block;
+    width: 100%;
+    padding: .375rem 2.25rem .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    background-repeat: no-repeat;
+    background-position: right .75rem center;
+    background-size: 16px 12px;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+       
+   }
+
+   #count-calories-cc{
+    color: #C23641;
+    background-color: #fff;
+    border-color:#fff #fff #C23641;
+}
+#count-calories-cc a{
+    border-color: #fff #fff #fff;
+    color:#C23641;
+    font-weight:500;
+    font-size:17px;
+}
+
+#search-cc{
+    color: #C23641;
+    background-color: #fff;
+    border-color: #dee2e6 #dee2e6 #dee2e6;
+}
+
+#search-cc a{
+    color:#C23641;
+    font-weight:500;
+    font-size:17px;
+}
+#radio-btn-coun-cc .btn-outline-primary{
+    color:#C23641;
+    border-color: #C23641;
+
+}
+#radio-btn-coun-cc label:hover {
+    background-color: #C23641;
+    color:#fff;
+  }
+  #search-btn-cc{
+    color:#C23641;
+    border-color: #C23641;
+  }
+  #search-btn-cc:hover{
+    background-color: #C23641;
+    color:#fff;
+  }
+  #no_items_added{
+    position: absolute;
+    top: -13px;
+    right: -8px;
+    background: #c23641;
+    border: 1px solid #ccc;
+    font-size: 18px;
+    border-radius: 50%;
+    padding: 2px 9px;
+    font-weight: 400;
+  }
+  #count-calories-container .form-check-label{
+      font-weight:500;
+      font-size:16px;
+      color:#ffffff;
+
+  }
+  #radio-btn-countrys-cc{
+      padding-top:10px;
+  }
+  #navbar-count-calories{
+    background-color:#48494b; 
+  }
+#navbar-count-calories a{
+    color:#ffffff;
+    font-weight:500;
+    font-size:16px;
+}
+#navbar-count-calories li.active{
+    border:1px solid #a49d9d;
+}
+#controls-row-count-calories{
+    background-color:#C23641;
+    padding-top:20px;
+}
+#controls-row-count-calories .form-check{
+    padding-bottom:1.05rem;
+}
+#controls-row-count-calories .form-check-label{
+    font-weight:500;
+    color:#ffffff;
+    font-size:16px;
+}
