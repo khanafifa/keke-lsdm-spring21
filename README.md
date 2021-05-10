@@ -1,27 +1,22 @@
-# MyAppLsdm
+# Author
+Afifa Khan
+version 1.1.0
 
+# MyAppLsdm
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.1.
 
-## Development server
+# Pre requisites 
+Install Node js , version 10 and above
+Please visit https://angular.io/guide/setup-local for further instructions to setup node on your machine
+Install Angular CLI version 9  using "npm install -g @angular/cli"
+Please visit https://angular.io/guide/setup-local for further instructions to setup angular on your machine
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+# Project set up
+Clone the repository and install node packages by navigating into the folder that contains the package.json file using the command
+"npm install"
 
-## Code scaffolding
+## Run development server
+Run `ng serve` to run the server. Navigate to `http://localhost:4200/`.
+or
+Run `ng serve --open`
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
